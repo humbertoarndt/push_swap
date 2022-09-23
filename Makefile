@@ -6,7 +6,7 @@
 #    By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/09 00:19:18 by harndt            #+#    #+#              #
-#    Updated: 2022/09/09 00:59:39 by harndt           ###   ########.fr        #
+#    Updated: 2022/09/23 22:30:56 by harndt           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,13 @@ CFLAGS		:=	#-Wall -Werror -Wextra
 HEADERS		:=	includes
 LIBFT		:=	./libft/libft.a
 SRCS		:=	push_swap.c
+SRCS		+=	./srcs/ft_dlistreverse.c	./srcs/ft_dlistadd_after.c	\
+				./srcs/ft_dlistadd_back.c	./srcs/ft_dlistswap.c		\
+				./srcs/ft_dlistdel_front.c	./srcs/ft_dlistprint.c		\
+				./srcs/ft_dlistsearch_element.c	./srcs/ft_dlistnew.c	\
+				./srcs/ft_dlistadd_front.c	./srcs/ft_dlistadd_at.c		\
+				./srcs/ft_dlistdel_back.c	./srcs/ft_dlistget_len.c	\
+				./srcs/ft_dlistdel_at.c	./srcs/ft_dlistclear.c
 OBJS		:=	$(SRCS:.c=.o)
 
 # ==============================================================================
