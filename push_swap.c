@@ -6,7 +6,7 @@
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:57:32 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/12 21:33:14 by harndt           ###   ########.fr       */
+/*   Updated: 2022/09/24 22:31:05 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static t_dlist check(int argc, char **argv)
 		if (tmp < MIN)
 			usage(LST_MIN);
 	}
+	return (list);
 }
 
 int	main(int argc, char **argv)
@@ -46,7 +47,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		usage(USG);
-	list = check(argc, **argv);
+	list = check(argc, argv);
 	// while (argc -1)
 	// 	{
 	// 		if (ft_isnum(argv[argc -1]) == 0)
