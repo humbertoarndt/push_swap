@@ -6,13 +6,13 @@
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 22:05:32 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/23 22:24:10 by harndt           ###   ########.fr       */
+/*   Updated: 2022/09/24 22:18:21 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_dlistsearch_element(t_dlist *start, int value)
+int	ft_dlistsearch_element(t_dlist *start, int value)
 {
 	int		i;
 	int		found;
@@ -36,10 +36,7 @@ void	ft_dlistsearch_element(t_dlist *start, int value)
 				break ;
 		}
 		if (found == 1)
-			printf("%d is found at index = %d.\n", value, i);
-		else
-			printf("%d is not found in the list.\n", value);
+			return (i);
 	}
-	else
-		printf("Empty list.\n");
+	return (-1);
 }

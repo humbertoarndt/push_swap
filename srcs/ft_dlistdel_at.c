@@ -6,7 +6,7 @@
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 22:03:47 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/23 22:22:17 by harndt           ###   ########.fr       */
+/*   Updated: 2022/09/24 22:18:42 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,9 @@ void	ft_dlistdel_at(t_dlist **start, int position)
 	t_dlist	*del_node;
 
 	i = 0;
-	elements = 0;
+	elements = ft_dlistget_len(*start);
 	temp = *start;
 	del_node = *start;
-	if (temp != NULL)
-	{
-		elements++;
-		temp = temp->next;
-	}
-	while (temp != *start)
-	{
-		elements++;
-		temp = temp->next;
-	}
 	if (position < 1 || position > elements)
 		return ;
 	else

@@ -6,7 +6,7 @@
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:50:37 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/23 22:55:47 by harndt           ###   ########.fr       */
+/*   Updated: 2022/09/24 22:17:50 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,12 +144,13 @@ void	ft_dlist_print(t_dlist *start);
 void	ft_dlistreverse(t_dlist **start);
 
 /**
- * @brief Searchs if an elemente exists on the list.
+ * @brief Searchs if an element exists on the list.
  * 
  * @param start Reference to the head of the list.
  * @param value The value to search.
+ * @return If the value exists returns its position, if not return -1.
  */
-void	ft_dlistsearch_element(t_dlist *start, int value);
+int		ft_dlistsearch_element(t_dlist *start, int value);
 
 /**
  * @brief Swaps the position from two nodes on the list.
