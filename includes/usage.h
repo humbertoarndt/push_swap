@@ -6,7 +6,7 @@
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:50:37 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/12 21:13:11 by harndt           ###   ########.fr       */
+/*   Updated: 2022/09/30 01:20:35 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 
 # define USG "\e[1;36mUsage\033[1;0m: ./push_swap <list>"
 # define LST_INT "\033[1;31mERROR\033[1;0m: Some arguments are not integers."
-# define LST_MAX "\033[1;31mERROR\033[1;0m: some arguments are bigger than int."
-# define LST_MIN "\033[1;31mERROR\033[1;0m: some arguments are lesser than int."
+# define LST_MAX "\033[1;31mERROR\033[1;0m: Some arguments are bigger than int."
+# define LST_DBL "\033[1;31mERROR\033[1;0m: Duplicated value."
+# define ERR "\033[1;31mERROR\033[1;0m."
 
 // =============================================================================
 // FUNCTIONS

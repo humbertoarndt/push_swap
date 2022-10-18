@@ -6,7 +6,7 @@
 #    By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 20:43:56 by harndt            #+#    #+#              #
-#    Updated: 2022/09/09 18:51:13 by harndt           ###   ########.fr        #
+#    Updated: 2022/10/12 16:06:05 by harndt           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,9 @@ SRCS	+=	ft_substr.c		ft_strjoin.c	ft_strtrim.c	\
 # LIBFT BONUS
 # ==============================================================================
 
-BONUS_SRCS	:=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	\
-				ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c	\
-				ft_lstclear.c	ft_lstiter.c		ft_lstmap.c
+SRCS	+=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	\
+			ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c	\
+			ft_lstclear.c	ft_lstiter.c		ft_lstmap.c
 
 # ==============================================================================
 # GNL
@@ -82,13 +82,14 @@ SRCS	+=	ft_isnum.c	ft_ternary.c
 # PUSH_SWAP
 # ==============================================================================
 
-SRCS	+=	ft_atol.c
+SRCS	+=	ft_atol.c	ft_lstat.c	ft_lstdup_int.c	ft_lstsort.c				\
+			ft_lstfind.c
 
 # ==============================================================================
 # COLORS
 # ==============================================================================
 
-GREEN		:=	\033[1;32m
+BLUE		:=	\033[1;36m
 RED			:=	\033[1;31m
 WHT			:=	\033[1;37m
 EOC			:=	\033[1;0m
@@ -99,34 +100,26 @@ EOC			:=	\033[1;0m
 
 OBJS	:=	$(SRCS:.c=.o)
 
-BONUS_OBJS := $(BONUS_SRCS:.c=.o)
-
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			@echo "$(WHT)Compiling $(NAME)...$(EOC)"
 			@ar -rc $(NAME) $(OBJS)
 			@ranlib $(NAME)
-			@echo "$(GREEN)$(NAME) build completed.$(EOC)"
-
-bonus:		$(OBJS) $(BONUS_OBJS)
-			@echo "$(WHT)Compiling LIBFT Bonus...$(EOC)"
-			@ar -rc $(NAME) $^
-			# @ranlib $(NAME)
-			@echo "$(GREEN)LIBFT Bonus build completed.$(EOC)"
+			@echo "$(BLUE)$(NAME) build completed.$(EOC)"
 
 %.o:		%.c $(HEADER)
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 			@echo "$(WHT)Removing .o files...$(EOC)"
-			@rm -f $(OBJS) $(BONUS_OBJS)
-			@echo "$(GREEN)LIBFT - Clean done.$(EOC)"
+			@rm -f $(OBJS)
+			@echo "$(BLUE)LIBFT - Clean done.$(EOC)"
 
 fclean:		clean
 			@echo "$(WHT)Removing object- and binary -files...$(EOC)"
 			@rm -f $(NAME)
-			@echo "$(GREEN)LIBFT - Fclean done.$(EOC)"
+			@echo "$(BLUE)LIBFT - Fclean done.$(EOC)"
 
 re:			fclean all
 

@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlistget_len.c                                  :+:      :+:    :+:   */
+/*   ft_lstat.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 22:00:18 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/23 22:23:07 by harndt           ###   ########.fr       */
+/*   Created: 2022/10/10 23:32:09 by harndt            #+#    #+#             */
+/*   Updated: 2022/10/10 23:32:17 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_dlistget_len(t_dlist *start)
+t_list	*ft_lstat(t_list *list, unsigned int n)
 {
-	int		i;
-	t_dlist	*temp;
+	unsigned int	i;
 
 	i = 0;
-	temp = start;
-	if (temp != NULL)
+	while (i++ < n)
 	{
-		i++;
-		temp = temp->next;
+		if (!list)
+			break ;
+		list = list->next;
 	}
-	while (temp != start)
-	{
-		i++;
-		temp = temp->next;
-	}
-	return (i);
+	return (list);
 }

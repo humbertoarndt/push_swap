@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlistclear.c                                    :+:      :+:    :+:   */
+/*   ft_lstdup_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 22:04:33 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/23 22:21:54 by harndt           ###   ########.fr       */
+/*   Created: 2022/10/10 23:31:30 by harndt            #+#    #+#             */
+/*   Updated: 2022/10/10 23:31:37 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_dlistclear(t_dlist **start)
+t_list	*ft_lstdup_int(t_list *list)
 {
-	t_dlist	*temp;
-	t_dlist	*current;
+	t_list	*new;
+	t_list	*temp;
+	int		*content;
 
-	if (*start != NULL)
+	new = 0;
+	while (list)
 	{
-		current = (*start)->next;
-		while (current != *start)
-		{
-			temp = current->next;
-			free (current);
-			current = temp;
-		}
-		free(*start);
-		*start = NULL;
+		content = (int *)malloc(sizeof(*content));
+		if (!content)
+			return (0);
+		*content = *(int *)list->content;
+		temp = ft_lstnew(content);
+		if (!temp)
+			return (0);
+		ft_lstadd_back(&new, temp);
+		list = list->next;
 	}
+	return (new);
 }

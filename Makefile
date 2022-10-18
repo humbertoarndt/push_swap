@@ -6,7 +6,7 @@
 #    By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/09 00:19:18 by harndt            #+#    #+#              #
-#    Updated: 2022/09/24 22:19:22 by harndt           ###   ########.fr        #
+#    Updated: 2022/10/10 23:42:53 by harndt           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,14 @@
 
 NAME		:=	push_swap
 CC			:=	cc
-CFLAGS		:=	#-Wall -Werror -Wextra
+CFLAGS		:=	-Wall -Werror -Wextra
 HEADERS		:=	includes
 LIBFT		:=	./libft/libft.a
 SRCS		:=	push_swap.c
-SRCS		+=	./srcs/ft_dlistreverse.c	./srcs/ft_dlistadd_after.c	\
-				./srcs/ft_dlistadd_back.c	./srcs/ft_dlistswap.c		\
-				./srcs/ft_dlistdel_front.c	./srcs/ft_dlistprint.c		\
-				./srcs/ft_dlistsearch_element.c	./srcs/ft_dlistnew.c	\
-				./srcs/ft_dlistadd_front.c	./srcs/ft_dlistadd_at.c		\
-				./srcs/ft_dlistdel_back.c	./srcs/ft_dlistget_len.c	\
-				./srcs/ft_dlistdel_at.c		./srcs/ft_dlistclear.c
+SRCS		+=	./srcs/do_push.c	./srcs/do_reverse_rotate.c					\
+				./srcs/do_rotate.c	./srcs/do_swap.c							\
+				./srcs/stack.c		./srcs/utils.c								\
+				./srcs/sort.c
 OBJS		:=	$(SRCS:.c=.o)
 
 # ==============================================================================
@@ -69,6 +66,14 @@ fclean:		clean
 
 re:			fclean all
 
-#valgrind:
+valgrind:
+			@echo "$(WHT)Removing old log.$(EOC)"
+			@rm -f valgrind-out.txt
+			@echo "$(WHT)Old log removed.$(EOC)"
+			@echo "$(WHT)Executing Valgrind.$(EOC)"
+			@valgrind --leak-check=full --show-leak-kinds=reachable --track-origins=yes \
+			--log-file=valgrind-out.txt \
+			./$(NAME) 1 2 3
+			@echo "$(GREEN)Valgrind-log created.$(EOC)"
 
 .PHONY:		all clean fclean re valgrind

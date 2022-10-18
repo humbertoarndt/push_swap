@@ -6,7 +6,7 @@
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:50:37 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/24 22:17:50 by harndt           ###   ########.fr       */
+/*   Updated: 2022/10/12 16:57:39 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,127 +38,192 @@
 // =============================================================================
 // STRUCTS
 // =============================================================================
-typedef struct s_dlist
+
+typedef struct s_stack
 {
-	struct s_dlist	*prev;
-	int				data;
-	struct s_dlist	*next;
-}					t_dlist;
+	t_list	*head;
+	int		size;
+}				t_stack;
 
 // =============================================================================
 // FUNCTIONS
 // =============================================================================
 
 /**
- * @brief Creates and insert a new node of value data1 after node with value
- *  data2.
- * 
- * @param start Reference to the head of the list.
- * @param data1 The new value to be included.
- * @param data2 The value to use as postion reference.
- */
-void	ft_dlistadd_after(t_dlist **start, int data1, int data2);
+ * @brief Prints each value on the stack into the terminal.
+ * @param t_stack The stack to be printed.
+**/
+void	print_stack(t_stack	*stack);
 
 /**
- * @brief Creates and insert a new node a the given position.
- * 
- * @param start Reference to the head of the list.
- * @param data The new data to insert.
- * @param position The given position.
- */
-void	ft_dlistadd_at(t_dlist **start, int data, int position);
+ * @brief Pushs a new value into a stack and increases its size.
+ * @param t_stack The stack to receive a new value.
+ * @param void The new value.
+**/
+void	stack_push(t_stack *stack, void *content);
 
 /**
- * @brief Creates and insert a new node at the last position.
- * 
- * @param start Reference to the head of the list.
- * @param data The new data to insert.
- */
-void	ft_dlistadd_back(t_dlist **start, int data);
+ * @brief Pops a value from the given stack.
+ * @param t_stack The stack to be poped.
+**/
+void	*stack_pop(t_stack *stack);
 
 /**
- * @brief Creates and insert a new node at the beginning of the list.
- * 
- * @param start Reference to the head of the list.
- * @param data The new data to insert.
- */
-void	ft_dlistadd_front(t_dlist **start, int data);
+ * @brief Shifts up all ellements from the stack by 1.
+ * @param t_stack The stack to be shifted.
+ * @param void The node content.
+**/
+void	stack_shift(t_stack *stack, void *content);
 
 /**
- * @brief Clear every node from the list.
- * 
- * @param start Referente to the head of the list.
- */
-void	ft_dlistclear(t_dlist **start);
+ * @brief Shifts down all ellements from the stack by 1.
+ * @param t_stack The stack to be shifted.
+ * @return The unshifted stack.
+**/
+void	*stack_unshift(t_stack *stack);
 
 /**
- * @brief Removes a node at the given postion.
- * 
- * @param start Reference to the head of the list.
- * @param position The position to remove.
- */
-void	ft_dlistdel_at(t_dlist **start, int position);
+ * @brief Founds the median value at the given stack.
+ * @param t_stack The stack to be calculated.
+ * @return The median value.
+**/
+int		stack_median(t_stack *stack);
 
 /**
- * @brief Removes the last node from the list.
- * 
- * @param start Reference to the head of the list.
- */
-void	ft_dlistdel_back(t_dlist **start);
+ * @brief Swaps the first to position a the given stack.
+ * @param t_stack The stack to be swapped.
+**/
+void	swap(t_stack *stack);
 
 /**
- * @brief Removes the first node from the list.
- * 
- * @param start Reference to the head of the list.
- */
-void	ft_dlistdel_front(t_dlist **start);
+ * @brief Swap the first 2 elements at the top of stack a.
+ Do nothing if there is only one or no elements.
+ * @param t_stack The stack to be swapped.
+ * @param t_stack The stack to be swapped.
+**/
+void	sa(t_stack *a, t_stack *b);
 
 /**
- * @brief Gets the lenght from the given list.
- * 
- * @param start Reference to the head of the list.
- * @return int The list lenght.
- */
-int		ft_dlistget_len(t_dlist *start);
+ * @brief Swap the first 2 elements at the top of stack b.
+ Do nothing if there is only one or no elements.
+ * @param t_stack The stack to be swapped.
+ * @param t_stack The stack to be swapped.
+**/
+void	sb(t_stack *a, t_stack *b);
 
 /**
- * @brief Creates a new node.
- * 
- * @param data The value to be stored.
- * @return t_dlist* The created node.
- */
-t_dlist	*ft_dlistnew(int data);
+ * @brief Do sa and sb at the same time.
+ * @param t_stack The stack to be swapped.
+ * @param t_stack The stack to be swapped.
+**/
+void	ss(t_stack *a, t_stack *b);
 
 /**
- * @brief Prints all elemtens from the list.
- * 
- * @param start Reference to the head of the list.
- */
-void	ft_dlist_print(t_dlist *start);
+ * @brief Take the first element at the top of b and put it a the top o a.
+ Do nothing if b is empty.
+ * @param t_stack The stack to be popped/pushed.
+ * @param t_stack The stack to be popped/pushed.
+**/
+void	pa(t_stack *a, t_stack *b);
 
 /**
- * @brief Reverses the list.
- * 
- * @param start reference to the head of the list.
- */
-void	ft_dlistreverse(t_dlist **start);
+ * @brief Take the first element at the top of a and put it a the top o b.
+ Do nothing if a is empty.
+ * @param t_stack The stack to be popped/pushed.
+ * @param t_stack The stack to be popped/pushed.
+**/
+void	pb(t_stack *a, t_stack *b);
 
 /**
- * @brief Searchs if an element exists on the list.
- * 
- * @param start Reference to the head of the list.
- * @param value The value to search.
- * @return If the value exists returns its position, if not return -1.
- */
-int		ft_dlistsearch_element(t_dlist *start, int value);
+ * @brief Rotates the given stack.
+ * @param t_stack The stack to be up shifted.
+**/
+void	rotate(t_stack *stack);
 
 /**
- * @brief Swaps the position from two nodes on the list.
- * 
- * @param start Reference to the head of the list.
- * @param node1 The value of the first node to be swaped.
- * @param node2 The value of the second node to be swaped.
- */
-void	ft_dlistswap(t_dlist *start, int node1, int node2);
+ * @brief Shift up all elements of stack a by 1.
+ * @param t_stack to be shifted.
+ * @param t_stack to be shifted.
+**/
+void	ra(t_stack *a, t_stack *b);
+
+/**
+ * @brief Shift up all elements of stack b by 1.
+ * @param t_stack to be shifted.
+ * @param t_stack to be shifted.
+**/
+void	rb(t_stack *a, t_stack *b);
+
+/**
+ * @brief Do ra and rb at the same time.
+**/
+void	rr(t_stack *a, t_stack *b);
+
+/**
+ * @brief Reverse rotates the given stack.
+ * @param t_stack The stack to be up shifted.
+**/
+void	reverse_rotate(t_stack *stack);
+
+/**
+ * @brief Shift down all elements of stack a by 1.
+ * @param t_stack to be shifted.
+ * @param t_stack to be shifted.
+**/
+void	rra(t_stack *a, t_stack *b);
+
+/**
+ * @brief Shift down all elements of stack b by 1.
+ * @param t_stack to be shifted.
+ * @param t_stack to be shifted.
+**/
+void	rrb(t_stack *a, t_stack *b);
+
+/**
+ * @brief Do rra and rrb at the same time.
+**/
+void	rrr(t_stack *a, t_stack *b);
+
+/**
+ * @brief Checks if a list is sorted.
+ * @param t_list The list to be checked.
+ * @return True if the list is sorted; False if the list is not.
+**/
+t_bool	is_sorted(t_list *list);
+
+/**
+ * @brief Gets the highest value in a list.
+ * @param t_list The list to be searched.
+ * @return The highest value.
+**/
+void	*get_max(t_list *list);
+
+/**
+ * @brief Gets the lowest value in a list.
+ * @param t_list The list to be searched.
+ * @return The lowest value.
+**/
+void	*get_min(t_list *list);
+
+/**
+ * @brief Sorts lists with size less than 4.
+ * @param t_stack The stack to be sorted.
+ * @param t_stack The stack to be sorted.
+**/
+void	sort_small(t_stack *a, t_stack *b);
+
+/**
+ * @brief Sorts lists with size bigger than 3 and less than 6.
+ * @param t_stack The stack to be sorted.
+ * @param t_stack The stack to be sorted.
+**/
+void	sort_medium(t_stack *a, t_stack *b);
+
+/**
+ * @brief Sorts large lists.
+ * @param t_stack The stack to be sorted.
+ * @param t_stack The stack to be sorted.
+**/
+void	sort_large(t_stack *a, t_stack *b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: harndt <harndt@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 21:42:28 by harndt            #+#    #+#             */
-/*   Updated: 2022/09/09 18:52:48 by harndt           ###   ########.fr       */
+/*   Updated: 2022/10/12 16:24:03 by harndt           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -576,4 +576,37 @@ int			ft_ternary(int condition, int a, int b);
  * @return If the converted is not done, return zero.
 **/
 long		ft_atol(const char *str);
+
+/**
+ * @brief Found the position of the given content.
+ * @param t_list The list to be searched.
+ * @param unsigned int The content to be looked for.
+ * @return The list at the position founded.
+**/
+t_list		*ft_lstat(t_list *list, unsigned int n);
+
+/**
+ * @brief Duplicates the given list.
+ * @param t_list The list to be duplicated.
+ * @return The new duplicated list.
+**/
+t_list		*ft_lstdup_int(t_list *list);
+
+/**
+ * @brief Sorts a list.
+ * @param t_list The list to be sorted.
+ * @param int The first content.
+ * @param int The last content.
+**/
+void		ft_lstsort(t_list *list, int start, int end);
+
+/**
+ * @brief Found a position in the list.
+ * @param t_list The list to be scrapped.
+ * @param void The data to be compared.
+ * @param int The result from the cmp function.
+ * @return The list at the founded position.
+**/
+t_list		*ft_lstfind(t_list *list, void *data, int (*cmp)());
+
 #endif
