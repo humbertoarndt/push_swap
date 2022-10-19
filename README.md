@@ -1,6 +1,8 @@
 # Push_swap
 <div align="center">
+
 ![badge](https://github.com/humbertoarndt/humbertoarndt/blob/main/42_badges/push_swape.png)  
+
 </div>
 
 ## About
@@ -18,4 +20,4 @@ The list provided must attend the following condition:
 * Do not contain duplicated arguments;
 If the arguments are valid, the program will output the list of action to sort the list.
 
-You can visualize this `push_swap`algorithm in action with [https://github.com/o-reo/push_swap_visualizer](O-reo's push_swap visualizer).
+You can visualize this `push_swap`algorithm in action with (https://github.com/o-reo/push_swap_visualizer)[O-reo's push_swap visualizer].
