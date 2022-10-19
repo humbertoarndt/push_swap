@@ -20,4 +20,4 @@ The list provided must attend the following condition:
 * Do not contain duplicated arguments;
 If the arguments are valid, the program will output the list of action to sort the list.
 
-You can visualize this `push_swap`algorithm in action with [O-reo's push_swap visualizer](https://github.com/o-reo/push_swap_visualizer).
+You can visualize this `push_swap` algorithm in action with [O-reo's push_swap visualizer](https://github.com/o-reo/push_swap_visualizer).
