@@ -10,10 +10,10 @@ The project goal is to write a program in C called `push_swap` which sorts a giv
 
 ## Usage
 Git clone the repository. Then use `make`to compile it.  
-```git clone https://github.com/humbertoarndt/push_swap.git```
+```git clone https://github.com/humbertoarndt/push_swap.git```  
 ```make```  
 Run it as:  
-```./push_swap <list>```
+```./push_swap <list>```  
 The list provided must attend the following condition:
 * Do not contain arguments that are not integer;
 * Do not contain arguments bigger than integer;
